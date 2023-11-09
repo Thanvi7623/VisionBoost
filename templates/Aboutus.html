@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Process</title>
+    <link rel="icon" type="image/jpg" href="{{url_for('static', filename = 'images/logo.jpg') }}">
+    <style>
+
+        header {
+            background-color: rgba(244, 240, 240, 0.271);
+            text-align: center;
+            padding: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+   
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    color: #fefcfc;
+    text-decoration: none;
+    font-size: 16px;
+}
+        #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    margin-top: 170px;
+    margin-left: 450px; /* Add margin-top to separate from header */
+    max-width: 600px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(13, 12, 12, 0.1);
+    padding: 30px;
+}
+
+
+        h1 {
+            color: rgb(11, 11, 11);
+           
+        }
+
+        #uploadedImage {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #121212;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            justify-content: center;
+            display: inline-block;
+        }
+
+        label:hover {
+            background-color: #0e0e0e;
+        }
+
+        button {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+body {
+    background-image:url(https://t4.ftcdn.net/jpg/03/56/31/63/360_F_356316372_tGZ4gG7sHHh2vBT2GIgIpd9LO2klumgd.jpg);
+    background-attachment: fixed;  
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+           
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1  style="margin-left: 650px; color: white;" >VISION BOOST</h1>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('index')}}">Image Enhancing</a></li>
+                <li><a href="{{url_for('about')}}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container"> 
+        <h1> PROJECT B10 </h1>
+        <form>
+            <h3><b> Our Guide:</b></h3>
+            <p>
+                Smt. K. Gayathri,<br>
+                Assistant Professor,<br>
+                Department of Computer Science & Engineering<br>
+                <br><br>
+                </p>
+            <h3><b>
+                Our Team:</b><br></h3>
+            </p>
+            
+            M. Sri Thanvi (209X1A0576)<br>
+            M. Yesaswini (209X1A0574)<br>
+            K. Sravani (209X1A0569)<br>
+            
+            </p>
+        </form>
+      
+
+
+</body>
+</html>

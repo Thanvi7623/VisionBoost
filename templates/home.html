@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vision Boost</title>
+    <link rel="icon" type="jpg" href="{{url_for('static', filename = 'images/logo.jpg') }}">
+    <style>
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }   
+        h1 {
+            color: white;
+        }
+        body {
+            margin: 0;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        video {
+            flex: 1;
+            object-fit: cover;
+        }
+
+        section {
+            flex: 1;
+            font-family: 'Agenda-Light', 'Agenda Light', Agenda, 'Arial Narrow', sans-serif;
+            font-weight: 100;
+            background-color: rgba(237, 235, 235, 0.3);
+            color: rgb(16, 16, 16);
+            padding-left: 5rem;
+            
+            padding-right: 2rem;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-top: 0;
+            letter-spacing: 0.3rem;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            
+        }
+
+        /* Hover effect for the anchor tag */
+        .button-link:hover {
+            background-color: #111112;
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <video id="myVid" loop autoplay muted>
+        <source src="{{url_for('static', filename = '/video/vision.mp4')}}" type="video/mp4"> 
+    </video>
+
+    <section>
+       
+        <h3><b>VISION BOOST</b>: Empowering Low-Light Image Enhancements with Deep Learning</h3>
+        <p>
+            Welcome to our Vision Boost Project! Our mission is to transform ordinary images into extraordinary visual experiences. We leverage cutting-edge technology and innovative algorithms to enhance the quality and appeal of your photos.
+        </p>
+        <b><h4>What We Offer:</h4></b>
+        <ul>
+            <li><b>Enhanced Clarity:</b> We improve the sharpness and clarity of your images, bringing out intricate details you might have missed.</li>
+            <li><b>Vibrant Colors:</b> Our algorithms enhance and optimize color saturation, making your photos pop with vivid hues.</li>
+            <li><b>Noise Reduction:</b> Say goodbye to unwanted noise and graininess in your pictures. We provide noise reduction to ensure a clean, professional look.</li>
+            <li><b>Professional Retouching:</b> Achieve that flawless, professional look with our retouching services. We can enhance skin tones, remove blemishes, and more.</li>
+            <li><b>Preservation of Originality:</b> While enhancing your images, we make sure to preserve the original essence and aesthetics of the photo.</li>
+        </ul>
+        <b><h4>Why Choose Us:</h4></b>
+        <p>
+            We are dedicated to delivering the best results. Whether you're a photographer looking to perfect your shots or an individual seeking to enhance personal photos, we've got you covered. We prioritize quality, speed, and user-friendliness, making your image enhancement process smooth and efficient.
+
+            At Image Enhancement Project, we believe every picture tells a story. Let us help you tell yours in the most captivating and beautiful way possible.
+
+            Get started today and experience the magic of image enhancement!
+        </p>
+        <div style="text-align: center;">
+        <a href="{{url_for('index')}}" class="button-link" >Click Here To Enhance The Image</a>
+        </div>
+    </section>
+    <form action="{{url_for('index')}}" method="post" enctype="multipart/form-data">
+</body>
+</html>

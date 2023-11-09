@@ -1,0 +1,69 @@
+<html>
+    <head>
+      <title>Image Process</title>
+    <link rel="icon" type="jpg" href="{{url_for('static', filename = 'images/logo.jpg') }}">
+        <style>
+            img{
+          border: 5px solid #555;
+          }
+          header {
+            background-color: rgba(244, 240, 240, 0.271);
+            text-align: center;
+            padding: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+   
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    color: #fefcfc;
+    text-decoration: none;
+    font-size: 16px;
+}
+          body {
+    background-image:url(https://t4.ftcdn.net/jpg/03/56/31/63/360_F_356316372_tGZ4gG7sHHh2vBT2GIgIpd9LO2klumgd.jpg);
+    background-attachment: fixed;  
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+           
+}
+          .center-image{
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh;
+          }
+        </style>
+    </head>
+    <body>
+      <header>
+        <h1  style="margin-left: 650px; color: white;" >VISION BOOST</h1>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('index')}}">Image Enhancing</a></li>
+                <li><a href="{{url_for('about')}}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="center-image">
+            <img width="500"height="500" src="{{url_for('static', filename = 'output.jpg')}}">
+         </div>
+    </body>
+</html>
