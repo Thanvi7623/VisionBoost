@@ -1,16 +1,12 @@
-import os
 import numpy as np
 import tensorflow as tf
 import rawpy
 import imageio
 
-class SeeInDark(tf.Module):
-    def __init__(self, num_classes=10):
-        super(SeeInDark, self).__init__()
 # Set the paths to your directories and checkpoint
 input_dir = './dataset/Sony/short/'
 checkpoint_dir = './checkpoint/Sony/'
-
+result_dir = '/content/drive/MyDrive/Colab Notebooks/SID/result_Sony/'
 
 # Define a function for Leaky ReLU
 def lrelu(x):
@@ -84,35 +80,39 @@ def pack_raw(raw):
     return out
 
 # Create a TensorFlow session
-sess = tf.compat.v1.Session()
-
-# Define placeholders for input and output images
-in_image = tf.compat.v1.placeholder(tf.float32, [1, None, None, 4])
-out_image = network(in_image)
-
-# Create a Saver object to restore the model
-saver = tf.compat.v1.train.Saver()
-sess.run(tf.compat.v1.global_variables_initializer())
-
-# Try to restore the model from the checkpoint
-ckpt = tf.compat.v1.train.get_checkpoint_state(checkpoint_dir)
-
-if ckpt and ckpt.model_checkpoint_path:
-    print('Restoring checkpoint:', ckpt.model_checkpoint_path)
-    saver.restore(sess, ckpt.model_checkpoint_path)
-else:
-    print('No checkpoint found in the specified directory.')
-
-# Replace 'input_image_path' with the path to your single input image
-input_image_path = '/content/drive/MyDrive/Colab Notebooks/SID/dataset/Sony/short/10227_00_0.033s.ARW'
-
-in_exposure = 100  # Set the desired exposure value
-ratio = in_exposure  # You can adjust this ratio as needed
-
-raw = rawpy.imread(input_image_path)
-input_full = np.expand_dims(pack_raw(raw), axis=0) * ratio
-
-output = sess.run(out_image, feed_dict={in_image: input_full})
-output = np.minimum(np.maximum(output, 0), 1)
-
-imageio.imsave( 'output.jpg', (output[0] * 255).astype(np.uint8))
+class SeeinDark:
+    def enhance():
+        sess = tf.compat.v1.Session()
+        
+        # Define placeholders for input and output images
+        in_image = tf.compat.v1.placeholder(tf.float32, [1, None, None, 4])
+        out_image = network(in_image)
+        
+        # Create a Saver object to restore the model
+        saver = tf.compat.v1.train.Saver()
+        sess.run(tf.compat.v1.global_variables_initializer())
+        
+        # Try to restore the model from the checkpoint
+        ckpt = tf.compat.v1.train.get_checkpoint_state(checkpoint_dir)
+        
+        if ckpt and ckpt.model_checkpoint_path:
+            print('Restoring checkpoint:', ckpt.model_checkpoint_path)
+            saver.restore(sess, ckpt.model_checkpoint_path)
+        else:
+            print('No checkpoint found in the specified directory.')
+        
+        # Replace 'input_image_path' with the path to your single input image
+        input_image_path = '/content/drive/MyDrive/Colab Notebooks/SID/dataset/Sony/short/10227_00_0.033s.ARW'
+        
+        in_exposure = 100  # Set the desired exposure value
+        ratio = in_exposure  # You can adjust this ratio as needed
+        
+        raw = rawpy.imread(input_image_path)
+        input_full = np.expand_dims(pack_raw(raw), axis=0) * ratio
+        
+        output = sess.run(out_image, feed_dict={in_image: input_full})
+        output = np.minimum(np.maximum(output, 0), 1)
+        
+        # Use imageio to save the enhanced image
+        imageio.imsave(result_dir + 'your_output_image.jpg', (output[0] * 255).astype(np.uint8))
+        return True

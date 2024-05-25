@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash
-from Enchancement import SeeInDark as SID
+from Enhancement import SeeInDark as SID
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
